@@ -12,18 +12,14 @@ class MyServer(BaseHTTPRequestHandler):
 
 def create_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-a', '--server_address', default=False, 
-                        help='server_address')
-    parser.add_argument('-p', '--server_port', default=False, 
-                        help='server_port')
+    parser.add_argument('-a', '--server_address', default=False, help='server_address')
+    parser.add_argument('-p', '--server_port', default=False, help='server_port')
     script_arg = parser.parse_args()
     return script_arg
 
 def validating_a_request(path):
-    if path == "/ping":
-        return True
-    else: 
-        return False
+    if path == "/ping": return True
+    else: return False
 
 script_arg = create_parser()
 address_server = script_arg.server_address or "localhost"
