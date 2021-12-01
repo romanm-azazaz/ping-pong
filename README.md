@@ -9,7 +9,6 @@ lomaha@ping-pong % python3 main.py -a=127.0.0.1 -p=9090
 ```
 lomaha@home-test % curl -G http://localhost:9090/ping
 pong
-
 ```
 #### Server side:
 ```
