@@ -5,7 +5,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.send_response(200); self.send_header("Content-type", "text/html"); self.end_headers()
         print(f"Request headers:\n{self.headers}")
         if validating_a_request(self.path): self.wfile.write(bytes("pong\n", "utf-8"))
-        else: self.wfile.write(bytes('Please, send me a "ping", I will answer you "pong"\n', "utf-8"))
+        else: self.wfile.write(bytes('Please, send me a "ping", I will answer you "pong".\n', "utf-8"))
 
 def create_parser():
     parser = argparse.ArgumentParser()
