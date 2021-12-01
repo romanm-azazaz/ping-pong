@@ -3,11 +3,11 @@ Simple server for checking http transport. It can be useful when debugging a net
 ```
 (client) --> [cloud_application_load_balance] --> [cloud_vpc]
 ```
-## Run
+### Run
 ```
 lomaha@ping-pong % python3 main.py -a=127.0.0.1 -p=9090
 ```
-## Use
+### Use
 #### Client side:
 ```
 lomaha@home-test % curl -G http://localhost:9090/ping
