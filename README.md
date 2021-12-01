@@ -1,5 +1,8 @@
 # ping-pong
-Server for checking http transport.
+Simple server for checking http transport. It can be useful when debugging a network or infrastructure by type:
+```
+(client) --> [cloud_application_load_balance] --> [cloud_vpc]
+```
 ## Run
 ```
 lomaha@ping-pong % python3 main.py -a=127.0.0.1 -p=9090
