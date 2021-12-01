@@ -12,27 +12,33 @@ class MyServer(BaseHTTPRequestHandler):
 
 def create_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-a', '--server_address', default=False, help='server_address')
-    parser.add_argument('-p', '--server_port', default=False, help='server_port')
+    parser.add_argument('-a', '--server_address', default=False, 
+                        help='server_address')
+    parser.add_argument('-p', '--server_port', default=False, 
+                        help='server_port')
     script_arg = parser.parse_args()
     return script_arg
 
 def validating_a_request(path):
-    if path == "/ping": return True
-    else: return False
+    if path == "/ping":
+        return True
+    else: 
+        return False
 
-script_arg = create_parser()
-address_server = script_arg.server_address or "localhost"
-server_port = int(script_arg.server_port) or 8080
+def main():
+    try:
+        script_arg = create_parser()
+
+        address_server = script_arg.server_address or "localhost"
+        server_port = int(script_arg.server_port) or 8080
+
+        simple_server = HTTPServer((address_server, server_port), MyServer)
+        print(f"Server started http://{address_server}:{server_port}")
+
+        simple_server.serve_forever()
+    except KeyboardInterrupt:
+        simple_server.server_close()
+        print("Server stopped.")
 
 if __name__ == "__main__":        
-    webServer = HTTPServer((address_server, server_port), MyServer)
-    print(f"Server started http://{address_server}:{server_port}")
-
-    try:
-        webServer.serve_forever()
-    except KeyboardInterrupt:
-        pass
-
-    webServer.server_close()
-    print("Server stopped.")
+    main()
