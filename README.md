@@ -1,5 +1,5 @@
 # ping-pong
-Server for checking http connection.
+Server for checking http transport.
 ## Run
 ```
 lomaha@ping-pong % python3 main.py -a=127.0.0.1 -p=9090
