@@ -5,20 +5,23 @@ Simple server for checking http transport. It can be useful when debugging a net
 ```
 ### Run
 ```
-lomaha@ping-pong % python3 main.py -a=127.0.0.1 -p=9090
+lomaha@ping-pong % python3 main.py -a=0.0.0.0 -p=80
 ```
 ### Use
 #### Client side:
 ```
-lomaha@home-test % curl -G http://localhost:9090/ping
+lomaha@home-test % curl -G https://demo.example.io/ping
 pong
 ```
 #### Server side:
 ```
-Server started http://127.0.0.1:9090
-127.0.0.1 - - [01/Dec/2021 12:10:11] "GET /ping HTTP/1.1" 200 -
+127.0.0.2 - - [01/Dec/2021 15:43:03] "GET /ping HTTP/1.1" 200 -
 Request headers:
-Host: localhost:9090
-User-Agent: curl/7.64.1
-Accept: */*
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-Proto: https
+X-Forwarded-Port: 443
+Host: demo.example.io
+X-Amzn-Trace-Id: Root=1-420-yc784y587yw9f58
+user-agent: curl/7.64.1
+accept: */*
 ```
