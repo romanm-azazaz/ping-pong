@@ -1,7 +1,7 @@
 # ping-pong
 Simple server for checking http transport. It can be useful when debugging a network or infrastructure by type:
 ```
-(client) --> [cloud_application_load_balance] --> [cloud_vpc]
+(client) --> [cloud_application_load_balance] --> [cloud_instance]
 ```
 ### Run
 ```
